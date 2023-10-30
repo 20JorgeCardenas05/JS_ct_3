@@ -84,5 +84,35 @@
 // if (nu1 == 0 || nu2 == 0) {
 //     console.log("Error");
 // } else {
-//     console.log(nu1 / nu2);
-// }
+//     console.log(nu1 / nu2)
+
+function calcular() {
+    let numero1 = parseFloat(document.getElementById("numer1").value);
+    let numero2 = parseFloat(document.getElementById("numer2").value);
+    let operacion = document.getElementById("operacion").value;
+
+    let resultado;
+    switch (operacion) {
+        case "suma":
+            resultado = numero1 + numero2;
+            break;
+        case "resta":
+            resultado = numero1 - numero2;
+            break;
+        case "multiplicacion":
+            resultado = numero1 * numero2;
+            break;
+        case "division":
+            if (numero2 !== 0) {
+                resultado = numero1 / numero2;
+            } else {
+                resultado = "No se puede dividir por cero.";
+            }
+            break;
+        default:
+            resultado = "Operación no válida";
+            break;
+    }
+
+    document.getElementById("resultado").textContent = resultado;
+}
